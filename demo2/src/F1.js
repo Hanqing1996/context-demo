@@ -2,9 +2,20 @@ import React, { Component } from 'react'
 const NContext = React.createContext();
 
 class F1 extends React.Component {
+    constructor(){
+        super()
+        this.state={
+            n:1000
+        }
+        setTimeout(()=>{
+            this.setState({
+                n:99
+            })
+        },3000)
+    }
     render() {
         return (
-            <NContext.Provider value={1000}>
+            <NContext.Provider value={this.state.n}>
                 <F2 />
             </NContext.Provider>
         );
